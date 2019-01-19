@@ -8,6 +8,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+
 @RestController
 public class ApiController {
 
@@ -19,12 +26,22 @@ public class ApiController {
     }
 
     @GetMapping("/files")
-    public ResponseEntity<String> getFiles() throws Exception {
+    public ResponseEntity<String> getFiles() throws NoSuchPaddingException,
+            UnsupportedEncodingException,
+            IllegalBlockSizeException,
+            BadPaddingException,
+            NoSuchAlgorithmException,
+            InvalidKeyException {
         return ResponseEntity.ok(apiService.getFile());
     }
 
     @PostMapping("/files/item")
-    public void createFile(@RequestBody String item) throws Exception {
+    public void createFile(@RequestBody String item) throws NoSuchPaddingException,
+            InvalidKeyException,
+            NoSuchAlgorithmException,
+            IllegalBlockSizeException,
+            BadPaddingException,
+            UnsupportedEncodingException {
         apiService.createFile(item);
     }
 
