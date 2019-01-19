@@ -14,7 +14,6 @@ public class CryptoUtil {
     private static final String ENCRYPTION_KEY = "ThisIsFoundation";
     private static final String UNICODE_FORMAT = "UTF-8";
 
-
     public String encrypt(String valueToEnc) throws Exception {
         Cipher cipher = createCipher(Cipher.ENCRYPT_MODE);
         byte[] encValue = cipher.doFinal(valueToEnc.getBytes(UNICODE_FORMAT));

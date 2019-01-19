@@ -14,7 +14,6 @@ public class FileUtil {
         try (FileOutputStream fs = new FileOutputStream(fileName)) {
             fs.write(content.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
             log.error("Unable to create file: ", e);
         }
     }
@@ -26,7 +25,6 @@ public class FileUtil {
             data = IOUtils.toString(fis, "UTF-8");
         } catch (IOException e) {
             log.error("Unable to read file: ", e);
-
         }
         return data;
     }
